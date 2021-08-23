@@ -38,7 +38,10 @@ public class Member {
         return team;
     }
 
-    public void setTeam(Team team) {
+    // 연관관계 편의 메서드
+    // 단순 setter 보다는 따로 이름을 주자
+    public void changeTeam(Team team) {
         this.team = team;
+        team.getMembers().add(this);
     }
 }
