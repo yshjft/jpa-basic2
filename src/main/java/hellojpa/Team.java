@@ -9,11 +9,18 @@ public class Team {
     @Id @GeneratedValue
     @Column(name = "TEAM_ID")
     private Long id;
+
     @Column(name="NAME")
     private String name;
 
+    // 다대일 관계 양방향 매핑
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
+
+    // 일대다 관계
+    // @OneToMany
+    // @JoinColumn(name="TEAM_ID")
+    // private List<Member> members = new ArrayList<>();
 
     public Long getId() {
         return id;
